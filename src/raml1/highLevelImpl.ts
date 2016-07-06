@@ -164,6 +164,9 @@ export class BasicASTNode implements hl.IParseResult {
     }
 
     errors():hl.ValidationIssue[]{
+        if(this.asElement()&&this.asElement().definition()&&universeHelpers.isExampleSpecType(this.asElement().definition())){
+            return [];
+        }
         var errors:hl.ValidationIssue[]=[];
         var q = createBasicValidationAcceptor(errors);
         this.validate(q);

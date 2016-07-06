@@ -102,19 +102,19 @@
       "code": 3,
       "message": "value was not provided for parameter: param1",
       "path": "api02.raml",
-      "line": 9,
-      "column": 0,
-      "position": 147,
+      "line": 10,
+      "column": 8,
+      "position": 166,
       "range": [
         {
-          "line": 9,
-          "column": 0,
-          "position": 147
+          "line": 10,
+          "column": 8,
+          "position": 166
         },
         {
-          "line": 9,
-          "column": 9,
-          "position": 156
+          "line": 10,
+          "column": 10,
+          "position": 168
         }
       ]
     }

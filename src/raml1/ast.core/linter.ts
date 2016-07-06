@@ -1680,7 +1680,7 @@ class DescriminatorOrReferenceValidator implements PropertyValidator{
             if (pr.range() instanceof def.ReferenceType){
                 var t=<def.ReferenceType>pr.range();
                 if (true){
-                    var mockNode=jsyaml.createNode(""+vl,<any>node.lowLevel().parent());
+                    var mockNode=jsyaml.createNode(""+vl,<any>node.lowLevel().parent(),node.lowLevel().unit());
                     mockNode._actualNode().startPosition=node.lowLevel().valueStart();
                     mockNode._actualNode().endPosition=node.lowLevel().valueEnd();
                     var stv=new hlimpl.StructuredValue(mockNode,node.parent(),node.property())
