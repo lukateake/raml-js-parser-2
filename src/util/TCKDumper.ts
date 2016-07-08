@@ -219,15 +219,11 @@ export class TCKDumper{
 
     private dumpErrors(errors:core.RamlParserError[]) {
         return errors.map(x=> {
-            return {
-                "code": x.code, //TCK error code
-                "message": x.message,
-                "path": x.path,
-                "line": x.line,
-                "column": x.column,
-                "position": x.start,
-                "range": x.range
+            var eObj = this.dumpErrorBasic(x);
+            if(x.stack && x.stack.length>0){
+                eObj['stack'] = x.stack.map(y=>this.dumpErrorBasic(y));
             }
+            return eObj
         }).sort((x, y)=> {
             if (x.path != y.path) {
                 return x.path.localeCompare(y.path);
@@ -237,6 +233,19 @@ export class TCKDumper{
             }
             return x.code - y.code;
         });
+    }
+
+    private dumpErrorBasic(x) {
+        var eObj = {
+            "code": x.code, //TCK error code
+            "message": x.message,
+            "path": x.path,
+            "line": x.line,
+            "column": x.column,
+            "position": x.start,
+            "range": x.range
+        };
+        return eObj;
     }
 
     private dumpProperties(props, node:coreApi.BasicNode|coreApi.AttributeNode):any {

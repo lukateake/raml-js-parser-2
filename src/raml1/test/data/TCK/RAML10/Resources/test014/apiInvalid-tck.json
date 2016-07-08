@@ -449,6 +449,28 @@
           "column": 17,
           "position": 910
         }
+      ],
+      "stack": [
+        {
+          "code": 11,
+          "message": "Unknown property:propertyFromType2",
+          "path": "apiInvalid.raml",
+          "line": 22,
+          "column": 12,
+          "position": 438,
+          "range": [
+            {
+              "line": 22,
+              "column": 12,
+              "position": 438
+            },
+            {
+              "line": 22,
+              "column": 29,
+              "position": 455
+            }
+          ]
+        }
       ]
     }
   ]
