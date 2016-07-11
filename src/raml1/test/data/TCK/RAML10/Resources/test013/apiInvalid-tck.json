@@ -448,7 +448,7 @@
           "position": 866
         }
       ],
-      "stack": [
+      "trace": [
         {
           "code": 11,
           "message": "Unknown property:propertyFromResourceType2",

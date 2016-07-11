@@ -450,7 +450,7 @@
           "position": 910
         }
       ],
-      "stack": [
+      "trace": [
         {
           "code": 11,
           "message": "Unknown property:propertyFromType2",

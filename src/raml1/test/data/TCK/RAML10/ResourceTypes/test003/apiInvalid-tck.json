@@ -468,7 +468,7 @@
           "position": 944
         }
       ],
-      "stack": [
+      "trace": [
         {
           "code": 11,
           "message": "Required property: propertyFromType1 is missed",
@@ -510,7 +510,7 @@
           "position": 944
         }
       ],
-      "stack": [
+      "trace": [
         {
           "code": 11,
           "message": "Unknown property:propertyFromType2",

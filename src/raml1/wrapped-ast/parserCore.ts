@@ -238,7 +238,7 @@ export class BasicNodeImpl implements hl.BasicNode{
 
             var eObj = this.basicError(x);
             if(x.extras && x.extras.length>0){
-                eObj.stack = x.extras.map(y=>this.basicError(y));
+                eObj.trace = x.extras.map(y=>this.basicError(y));
             }
             return eObj;
         });

@@ -220,8 +220,8 @@ export class TCKDumper{
     private dumpErrors(errors:core.RamlParserError[]) {
         return errors.map(x=> {
             var eObj = this.dumpErrorBasic(x);
-            if(x.stack && x.stack.length>0){
-                eObj['stack'] = x.stack.map(y=>this.dumpErrorBasic(y));
+            if(x.trace && x.trace.length>0){
+                eObj['trace'] = x.trace.map(y=>this.dumpErrorBasic(y));
             }
             return eObj
         }).sort((x, y)=> {
