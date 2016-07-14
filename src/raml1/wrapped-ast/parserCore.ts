@@ -234,14 +234,7 @@ export class BasicNodeImpl implements hl.BasicNode{
             issues = issues.concat(highLevelErrors);
         }
         
-        var result = issues.map(x=>{
-
-            var eObj = this.basicError(x);
-            if(x.extras && x.extras.length>0){
-                eObj.trace = x.extras.map(y=>this.basicError(y));
-            }
-            return eObj;
-        });
+        var result = issues.map(x=>this.basicError(x));
         return result;
     }
 
@@ -275,8 +268,7 @@ export class BasicNodeImpl implements hl.BasicNode{
         else {
             path = search.declRoot(this.highLevel()).lowLevel().unit().path();
         }
-
-        return {
+        var eObj:any = {
             code: x.code,
             message: x.message,
             path: path,
@@ -287,6 +279,10 @@ export class BasicNodeImpl implements hl.BasicNode{
             range: [startPoint, endPoint],
             isWarning: x.isWarning
         };
+        if(x.extras && x.extras.length>0){
+            eObj.trace = x.extras.map(y=>this.basicError(y));
+        }
+        return eObj;
     }
 
     /**

@@ -3401,7 +3401,8 @@ export function createIssue(
     }
     var error=localError(node, c, w, message,false,pr);
     if (original) {
-        error.extras.push(original);
+        original.extras.push(error);
+        error = original;
     }
     //console.log(error.start+":"+error.end)
     return error;
@@ -3432,7 +3433,8 @@ export function createLLIssue(issueCode:hl.IssueCode, message:string,node:ll.ILo
     }
     var error=localLowLevelError(node, rootCalculationAnchor, issueCode, isWarning, message,false);
     if (original) {
-        error.extras.push(original);
+        original.extras.push(error);
+        error = original;
     }
     //console.log(error.start+":"+error.end)
     return error;
