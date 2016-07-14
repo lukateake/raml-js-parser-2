@@ -467,9 +467,11 @@
               "column": 37,
               "position": 411
             }
-          ]
+          ],
+          "isWarning": true
         }
-      ]
+      ],
+      "isWarning": true
     }
   ]
 }

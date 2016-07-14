@@ -220,10 +220,10 @@ export class TCKDumper{
     private dumpErrors(errors:core.RamlParserError[]) {
         return errors.map(x=> {
             var eObj = this.dumpErrorBasic(x);
-            if(x.trace && x.trace.length>0){
+            if(x.trace && x.trace.length>0) {
                 eObj['trace'] = x.trace.map(y=>this.dumpErrorBasic(y));
             }
-            return eObj
+            return eObj;
         }).sort((x, y)=> {
             if (x.path != y.path) {
                 return x.path.localeCompare(y.path);
@@ -236,7 +236,7 @@ export class TCKDumper{
     }
 
     private dumpErrorBasic(x) {
-        var eObj = {
+        var eObj:any = {
             "code": x.code, //TCK error code
             "message": x.message,
             "path": x.path,
@@ -245,6 +245,9 @@ export class TCKDumper{
             "position": x.start,
             "range": x.range
         };
+        if(x.isWarning===true){
+            eObj.isWarning = true;
+        }
         return eObj;
     }
 
